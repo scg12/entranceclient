@@ -1,0 +1,33 @@
+ <div class="container-fluid">
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <div class="lig"> 
+    <md-form-field>
+        <input mdInput type="text" [(ngModel)]="orderN" name="on" (focusout)="checkForm();"  placeholder="Order Number" required>
+    </md-form-field>
+  </div> 
+  <div class="lig">
+      <md-form-field>
+          <input mdInput [(ngModel)]="dateOfBirth" [mdDatepicker]="myDatepicker" (focusout)="checkForm();" name="myDate1" placeholder="Birth Date" required>
+          <md-datepicker-toggle mdSuffix [for]="myDatepicker" ></md-datepicker-toggle>
+          <md-datepicker #myDatepicker></md-datepicker>
+      </md-form-field> 
+  </div>
+  <div class="lig">
+    <input type="submit" [disabled]="valid==0" *ngIf="valid!=2"  (click)="data();setValid2(f);" name="enter" value="Enter" style="border-radius:9px;" class="btn btn-success" >
+    <h4 *ngIf="candidate.name==unknown">Unknown Candidate!</h4>
+   <!-- <button type="button" *ngIf="valid2==1" class="btn btn-success" [routerLink]="['/reportregistration', candidate.name, candidate.surname, gender, ''+candidate.dateOfBirth, candidate.placeOfBirth, candidate.nationality, candidate.originRegion, candidate.originDivision, candidate.originSubDivision, candidate.employmentSituation, candidate.typeHandicap, candidate.cardID, ''+candidate.cardIDIssueDate, candidate.language1, candidate.maritalStatus, candidate.numberOfChildren, candidate.session, candidate.degreeDiploma
+                  , candidate.specialityDiploma, candidate.avgDiploma, candidate.diplomaObtainYear, candidate.obtainingInstitution, candidate.examCenter, candidate.depositPlace, candidate.admissionMode, candidate.cycle,
+                  candidate.department, candidate.option, candidate.residenceCity, candidate.tel1, candidate.email, candidate.address ]" 
+                  >PRINT FORM!</button> {{candidate |json}} -->
+    <a *ngIf="candidate.name!=local && candidate.name!='unknown' " (click)="setSection('Report Of Registration');" [routerLink]="['/reportregistration', candidate.name, candidate.surname, gender, ''+candidate.dateOfBirth, candidate.placeOfBirth, candidate.nationality, candidate.originRegion, candidate.originDivision, candidate.originSubDivision, candidate.employmentSituation, candidate.typeHandicap, candidate.cardID, ''+candidate.cardIDIssueDate, candidate.language1, candidate.maritalStatus, candidate.numberOfChildren, candidate.session, candidate.degreeDiploma
+                  , candidate.specialityDiploma, candidate.avgDiploma, candidate.diplomaObtainYear, candidate.obtainingInstitution, candidate.examCenter, candidate.depositPlace, candidate.admissionMode, candidate.cycle,
+                  candidate.department, candidate.option, candidate.residenceCity, candidate.tel1, candidate.email, candidate.address, candidate.optionOfTraining ]"
+                   routerLinkActive="active">PRINT FORM!</a>
+                
+  </div>     
+</form>     
+</div> <!--<h4 style="color: red;">ICI ICI: {{name }} </h4>
+<div class="container-fluid" *ngIf="name" style="width: 100%;height: 100%; color:black;">
+  
+<app-report-registration [name]="name"></app-report-registration>
+</div> -->

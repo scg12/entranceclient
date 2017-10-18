@@ -1,0 +1,70 @@
+<!-- <table>
+  <tr *ngFor="let candidate of candidates">
+    <td>{{ candidate.name}}</td>
+  </tr>
+</table> --> 
+<div class="container-fluid">
+
+    <div class="form-group flex">
+            <label>Filter</label>
+            
+            <input style="text-align: center;"  (keyup.enter)="FilterByName()" type="text"  id="inputName" [(ngModel)]="inputName"/>
+            <input type="button" (click)="FilterByName()" value="Apply"/>
+      </div>
+      <div class='row flex'>
+        <div class="panel panel-default">
+
+        <div class='panel-heading flex'><h4><B>Candidates List</B></h4></div>
+        <div class='panel-body'>
+            <table class="table table-bordered table-condensed ">
+                <thead>
+                  <th>Order Number</th>
+                  <th>Name</th>
+                  <th>Surname</th>
+                  <th>Deposit Date</th>
+                  <th>Deposit Center</th>
+                  <th>Exam Center</th>
+                  <th>Selected Cycle</th>
+                  <th>Department</th>
+                  <th>Option</th>  
+ 
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of items">  
+                      <td>{{item.optionOfTraining}}</td>
+                      <td>{{item.name }}</td>
+                      <td>{{item.surname}}</td> 
+                      <td>{{item.dateFirstRegistration}}</td>
+                      <td>{{item.depositPlace}}</td>
+                      <td>{{item.examCenter}}</td>
+                      <td>{{item.cycle}}</td>
+                      <td>{{item.department}}</td>
+                      <td>{{item.option}}</td>
+                      <td><div *ngIf="(priority==item.depositPlace||priority=='All')" ><a (click)="setSection('Validation');" [routerLink]="['/validation', item.name, item.surname, gender, ''+item.dateOfBirth, item.placeOfBirth, item.nationality, item.originRegion, item.originDivision, item.originSubDivision, item.employmentSituation, item.typeHandicap, item.cardID, ''+item.cardIDIssueDate, item.language1, item.maritalStatus, item.numberOfChildren, item.session, item.degreeDiploma
+                  , item.specialityDiploma, item.avgDiploma, item.diplomaObtainYear, item.obtainingInstitution, item.examCenter, item.depositPlace, item.admissionMode, item.cycle,
+                  item.department, item.option, item.residenceCity, item.tel1, item.email, item.address,item.idcandidates]"routerLinkActive="active" 
+                      
+                      >Edit</a></div>
+                      <div *ngIf="(priority!=item.depositPlace&&priority!='All')"></div>
+                     </td>
+                      
+                  </tr>
+                </tbody>
+            </table>
+            <div class="btn-toolbar flex" role="toolbar" style="margin: 0;">
+              <div class="btn-group">
+                  <label style="margin-top:10px">Page {{currentIndex}}/{{pageNumber}}</label>
+                </div>
+                <div class="btn-group pull-right">
+                  <ul class="pagination" >
+                      <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" ><a  (click)="prevPage()" >Prev</a></li>
+                        <li *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                            <a (click)="setPage(page)" >{{page}}</a>
+                        </li>
+                      <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a   (click)="nextPage()" >Next</a></li>
+                  </ul>
+                </div>
+            </div>
+          </div>
+      </div>
+</div>

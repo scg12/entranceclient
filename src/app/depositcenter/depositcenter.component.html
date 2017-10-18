@@ -1,0 +1,80 @@
+<div class="container-fluid">
+ <!--   <div class="main">
+        <div class="line1">
+          <table class="table table-bordered table-condensed ">
+                <thead>
+                  <th>Deposit Centers</th>
+ 
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ex of exs">   
+                      <td>{{ex}}</td>
+                      <td><md-checkbox #cb  [value]="user.idusers" name="user.idusers" (click)="delete(cb)"></md-checkbox></td>                      
+                  </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="line2">
+          <md-checkbox  [(ngModel)]="check">Add Center?</md-checkbox>
+        </div> 
+        <div *ngIf="check==true" class="line3">
+          <div class="line3col">
+             
+              <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="text" (focusout)="validation();" [(ngModel)]="label" name="label" placeholder="Label" required>
+                    </md-form-field>
+              </div>
+              <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="textarea" (focusout)="validation();" [(ngModel)]="desc" name="desc" placeholder="Description" >
+                    </md-form-field>
+              </div>
+              <div class="elt">
+                    
+             </div>
+             <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="text" (focusout)="validation();" [(ngModel)]="tel1" name="tel1" placeholder="Tel1" required>
+                    </md-form-field>
+              </div>
+              <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="number" (focusout)="validation();" [(ngModel)]="tel2" name="tel2" placeholder="Tel2" required>
+                    </md-form-field>
+              </div>
+          </div>
+          <div class="line3col">
+                <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="text" (focusout)="validation();" [(ngModel)]="login" name="login" placeholder="Login" required>
+                    </md-form-field>
+              </div>
+              <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="password" (focusout)="validation();" [(ngModel)]="pwd" name="pwd" placeholder="Password" required>
+                    </md-form-field>
+              </div>
+              <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="text" (focusout)="validation();" [(ngModel)]="email" name="email" placeholder="Email" required>
+                    </md-form-field>
+              </div>
+              <div class="elt">
+                
+                <md-select placeholder="Exam Center" (focusout)="validation();" [(ngModel)]="examCenter" name="examCenter" required>
+                    <md-option *ngFor="let ex of exs" [value]="ex">{{ ex }}</md-option>
+                </md-select>
+              </div>
+              <div class="elt">
+                   <md-form-field>
+                          <input mdInput type="text" (focusout)="validation();" [(ngModel)]="localisation" name="localisation" placeholder="Localisation" required>
+                    </md-form-field>
+              </div>
+          </div>
+        </div>
+        <div *ngIf="check==true" class="line4">
+          <input type="button" [disabled]="valid==0" (click)="submit();" name="ok" value="ADD" class="btn btn-success" >
+        </div>
+    </div>--> Still in building...
+</div> 

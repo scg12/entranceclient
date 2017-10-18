@@ -1,0 +1,6 @@
+.pagination { margin: 0px !important; }
+.flex{
+    display: flex;
+  align-items: center;
+  justify-content: center; 
+}

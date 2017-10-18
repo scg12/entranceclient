@@ -1,0 +1,123 @@
+<div class="container-fluid">
+<div class="ici" (click)="pdfHtml()">
+<div style="width: 100%; height: 100%;"  #test>
+  <div class="one">
+    <div class="header">
+       <p class="para">REPUBLIC OF CAMEROON</p>
+       <p class="para">Peace-Work-Fatherland</p>
+       <p class="para">MINISTRY OF HIGHER EDUCATION</p>
+       <p class="para">UNIVERSITY OF BUEA</p>
+       <p class="para">HIGHER TECHNICAL TEACHERS' TRAINING COLLEGE</p>
+       <p class="para">BP:</p>
+       <p class="para">TEL:</p>
+       <p class="para">EMAIL:</p>
+
+    </div>
+    <div class="logo">
+       <img style="width: 40%;height: 65%; margin-left: 30%; margin-top: 10%" src="../assets/images/ubuea1.PNG" alt="entete2">
+    </div>
+    <div class="header">
+       <p class="para">REPUBLIQUE DU CAMEROUN</p>
+       <p class="para">Paix-Travail-Patrie</p>
+       <p class="para">MINISTERE DE L’ENSEIGNEMENT SUPERIEUR</p>
+       <p class="para">UNIVERSITE DE BUEA</p>
+       <p class="para">ECOLE NNORMALE SUPERIEURE D’ENSEIGNEMENT TECHNIQUE</p>
+       <p class="para">P.O.BOX:</p>
+       <p class="para">TEL:</p>
+       <p class="para">EMAIL:</p>
+    </div>
+  </div>
+  <div class="two">
+    
+    <div style="width: 85%;height: 100%;">
+       <p class="para2">APPLICATION FORM/FORMULAIRE DE DEMANDE D’INSCRIPTION</p>
+       <p class="para2">COMMON ENTRANCE EXAMINATION INTO Year one OF THE SECOND CYCLE</p>
+       <p class="para2">HIGHER TECHNICAL TEACHERS’ TRAINING COLLEGE (H.T.T.T.C) KUMBA, UNIVERSITY OF BUEA</p>
+       <p class="para2">CONCOURS D’ENTRÉE EN Première année DU Second Cycle ECOLE NORMALE SUPERIEURE D’ENSEIGNEMENT TECHNIQUE(ENSET) KUMBA, UNIVERSITE DE BUEA</p>
+    </div>
+    <div style="width: 15%;height: 100%; border: 2px solid;">
+      <h4 class="para" style="text-align: center;">PHOTO</h4>
+    </div>
+  </div>
+  <div class="three">
+    
+      <div style="width: 90%; margin-left: 5%; height: 3%; float:left; text-align: center;  margin-bottom: 1%;" class="bold" >Personal Information</div>
+      <div style="width:100%; height: 40%; display: block;">
+        <div style="width: 50%; height: 100%; float: left;">
+          <p class="para3">Name & Order Number:  <label class="data">{{c.name+"  "}} <b style="color:red;">{{c.optionOfTraining}}</b></label></p>
+          <p class="para3">Surname:  <label class="data">{{c.surname}}</label></p>
+          <p class="para3">Birth Date:  <label class="data">{{dateOfBirth | date}}</label>  </p>
+          <p class="para3">Place Of Birth:  <label class="data">{{c.placeOfBirth}}</label></p>
+          <p class="para3">Nationality:  <label class="data">{{c.nationality}}</label></p>
+          <p class="para3">Gender:  <label class="data">{{gender}}</label></p>
+          <p class="para3">Origin Region:  <label class="data">{{c.originRegion}}</label></p>
+          <p class="para3">Orgin Division:  <label class="data">{{c.originDivision}}</label></p>
+        </div>
+        <div style="width: 50%; height: 100%; float: left;">
+          <p class="para3">Origin SubDivision:  <label class="data">{{c.originSubDivision}}</label></p>
+          <p class="para3">Employment Situation:  <label class="data">{{c.employmentSituation}}</label></p>
+          <p class="para3">Type Handicap:  <label class="data">{{c.typeHandicap}}</label></p>
+          <p class="para3">ID Card Number:  <label class="data">{{c.cardID}}</label></p>
+          <p class="para3">ID Issue Date:  <label class="data">{{cardIDate | date}}</label></p>
+          <p class="para3">Origin Language:  <label class="data">{{c.language1}}</label></p>
+          <p class="para3">Marital Status:  <label class="data">{{c.maritalStatus}}</label></p>
+          <p class="para3">Number Of Children:  <label class="data">{{numberOfChildren}}</label></p>
+        </div>
+      </div>
+
+      <div  style="width: 90%; margin-left: 5%; height: 3%; float: left; text-align: center;margin-top: 0; margin-bottom: 1%; " class="bold">Diploma Of Entrance</div>
+      <div style="width:100%; height: 15%; display: block;">
+        <div style=" width: 50%; height: 100%; float: left;">
+          <p style="margin-left:10%; height: 25%;">Session:  <label class="data">{{c.session}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Admission Diploma:  <label class="data">{{c.degreeDiploma}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Serie/Speciality:  <label class="data">{{c.specialityDiploma}}</label></p>
+        </div>
+        <div style="width: 50%; height: 100%; float: left;">
+          <p style="margin-left:10%; height: 25%;">Average:  <label class="data">{{c.avgDiploma}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Obtaining Year:  <label class="data">{{c.diplomaObtainYear}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Obtaining Institution:  <label class="data">{{c.obtainingInstitution}}</label></p>
+        </div>
+      </div>
+
+      <div style="width: 90%; margin-left: 5%; height: 3%;  text-align: center; float: left; margin-bottom: 1%;" class="bold" >Training Choice</div>
+      <div style="width:100%; height: 15%;display: block;">
+        <div style="width: 50%; height: 100%; float: left;">
+          <p style="margin-left:10%; height: 25%;">Selected Exam Center:  <label class="data">{{c.examCenter}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Deposit Center:  <label class="data">{{c.depositPlace}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Admission Mode:  <label class="data">{{c.admissionMode}}</label></p>
+        </div>
+        <div style="width: 50%; height: 100%; float: left;">
+          <p style="margin-left:10%; height: 25%;">Cycle:  <label class="data">{{c.cycle}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Department:  <label class="data">{{c.department}}</label></p>
+          <p style="margin-left:10%; height: 25%;">Option:  <label class="data">{{c.option}}</label></p>
+        </div>
+      </div>
+
+      <div style="width: 90%; margin-left: 5%; height: 3%;  text-align: center; float: left; margin-bottom: 1%;" class="bold">Personal Address</div>
+      <div style=" width:100%; height: 10%; display: block;">
+        <div style="width: 50%; height: 100%; float: left;">
+          <p style="margin-left:10%; height: 40%;">City Of residence:  <label class="data">{{c.residenceCity}}</label></p>
+          <p style="margin-left:10%; height: 40%;">Tel:  <label class="data">{{c.tel1}}</label></p>
+        </div>
+        <div style="width: 50%; height: 100%; float: left;">
+          <p style="margin-left:10%; height: 40%;">Email:  <label class="data">{{c.email}}</label></p>
+          <p style="margin-left:10%; height: 40%;">Address:  <label class="data">{{c.address}}</label></p>
+        </div>
+      </div>
+
+  </div>
+  <div class="four">
+    <!--<div style="font-size: 6px; width:100%;height: 33%">hereby declare thet all the information given in this form is correct to the best of my knoweldge.
+       Any false or incomplete information given in this form will automatically disqualify me from being considered form
+       admission to, or continuing with any course of study in the University of Buea I shall accepts final the decision of the University with regard to my
+       to my department/programme of study</div>
+    <div style="font-size: 6px; width:100%;height: 33%">soussigné reconnais avoir fourni les informations exactes dans le présent formulaire. Toute information avérée inexacte
+      ou incomplète dans ce formulaire entraîne automatiquement une disqualification au processus d'admission ou la poursuite des études
+      à l'Université de Buéa.je m'engage à accepter comme irrévocable la décision de l'Université relative
+      à mon département ou programme d'étude ' 
+    </div>-->
+    <div style="width:90%;height: 80%; text-align: right; font-size:10px; margin-left: 5%;">Date:_______________    Signature:_______________</div>
+  </div>
+</div>
+</div>
+</div>

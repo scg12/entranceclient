@@ -1,0 +1,332 @@
+<div class="container-fluid">
+
+<form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+  <div class="" style="">
+
+
+      <div class="head">
+              {{head}}
+      </div>
+      <div style="width:100%; height: 100%; background: rgba(0,0,0,0.7); border-radius:6px;">
+
+
+
+      <div class="size1" *ngIf="divId==1">
+
+        <div class="personalInfo1">
+
+           <div class="formElt">
+                 <md-form-field>
+                  <input mdInput type="text" [(ngModel)]="candidate.name" name="name" placeholder="Name" (focusout)="updateprogressbar(1)" required>
+                </md-form-field>
+
+           </div>
+
+           <div class="formElt">
+                <md-form-field>
+                  <input mdInput type="text" [(ngModel)]="candidate.surname" name="surname" placeholder="Surname" (focusout)="updateprogressbar(1)" required>
+                </md-form-field>
+           </div>
+ 
+           <div class="formElt">              
+                <md-form-field>
+                  <input mdInput [(ngModel)]="candidate.dateOfBirth" [mdDatepicker]="myDatepicker" name="myDate1" placeholder="Birth Date" (focusout)="setdatenaiss();updateprogressbar(1)" required>
+                  <md-datepicker-toggle mdSuffix [for]="myDatepicker" ></md-datepicker-toggle>
+                  <md-datepicker #myDatepicker></md-datepicker>
+                </md-form-field>
+          </div>
+
+              <div class="formElt">                     
+                     <md-form-field>
+                      <input mdInput type="text" [(ngModel)]="candidate.placeOfBirth" name="placeOfBirth" placeholder="Place Of Birth" (focusout)="updateprogressbar(1)" required>
+                    </md-form-field>
+              </div>
+
+
+                <div class="formElt">                
+                      <md-select *ngIf="selectNat==1" placeholder="Nationality" [(ngModel)]="candidate.nationality" name="nationality" (ngModelChange)="setAddNationality($event)" (focusout)="updateprogressbar(1)">
+                        <md-option *ngFor="let nat of nationalities" [value]="nat">{{ nat }}</md-option>
+                      </md-select>
+                      <md-form-field *ngIf="addNat==1">
+                        <input mdInput type="text" [(ngModel)]="nat" #n name="nat" (keyup.enter)="addNationality(n)" (focusout)=addNationality(n) placeholder="Your Nationality">
+                      </md-form-field>
+                </div>
+
+                <div class="formElt">
+                       <md-select placeholder="Gender" [(ngModel)]="gender" name="gender" (focusout)="setGender(); updateprogressbar(1)">
+                        <md-option *ngFor="let gend of genders" [value]="gend">{{ gend }}</md-option>
+                      </md-select>
+                </div>
+
+                <div class="formElt">                 
+                  <md-select placeholder="Origin Region" [(ngModel)]="candidate.originRegion"name="originRegion"  (ngModelChange)="onChange($event)" (focusout)="updateprogressbar(1)" required>
+                        <md-option *ngFor="let r of regions" [value]="r">{{ r.rle }}</md-option>
+                  </md-select>                  
+                </div>
+                <div class="formElt">
+                      <md-select placeholder="Origin Division" [(ngModel)]="candidate.originDivision" (ngModelChange)="onChange2($event)" name="originDivision" (focusout)="updateprogressbar(1)" required>
+                        <md-option *ngFor="let d of divisions1" [value]="d">{{ d.dle }}</md-option>
+                      </md-select>  
+
+                </div>
+
+
+
+
+            <!-- <datepicker [(ngModel)]="firstDate" [viewFormat]="'DD/MM/YYYY'" [modelFormat]="'YYYY-MM-DD'"  [id]="'firstDate'" [label]="'To'"></datepicker> -->
+
+        </div>
+
+        <div class="personalInfo2">
+
+          <div class="formElt">     
+                <md-select placeholder="Origin Sub Division" [(ngModel)]="candidate.originSubDivision" (ngModelChange)="onChange3($event)" name="originSubDivision" (focusout)="updateprogressbar(1)" required>
+                   <md-option *ngFor="let sd of subDivisions1" [value]="sd">{{ sd.sdle }}</md-option>
+                </md-select> 
+          </div>
+
+            <div class="formElt">
+                 <md-select placeholder="Employment Situation" [(ngModel)]="candidate.employmentSituation" name="employmentSituation" (focusout)="updateprogressbar(1)" required>
+                        <md-option *ngFor="let s of situations" [value]="s">{{ s }}</md-option>
+                  </md-select>
+              </div>
+                 <div class="formElt">                      
+                      <md-select placeholder="Type Handicap" [(ngModel)]="candidate.typeHandicap" name="typeHandicap" (focusout)="updateprogressbar(1)" required>
+                        <md-option *ngFor="let h of handicaps" [value]="h">{{ h }}</md-option>
+                      </md-select>
+                    
+                </div>
+                <div class="formElt">                      
+                       <md-form-field>
+                        <input mdInput type="number" [(ngModel)]="candidate.cardID" name="cardID" placeholder="ID Card Number" (focusout)="updateprogressbar(1)" required>
+                      </md-form-field>
+
+                </div>
+
+
+                <div class="formElt">         
+                     <md-form-field>
+                      <input mdInput [(ngModel)]="candidate.cardIDIssueDate" [mdDatepicker]="myDatepicker2" name="myDate2"  placeholder="ID Card Issue Date" required>
+                      <md-datepicker-toggle mdSuffix [for]="myDatepicker2" ></md-datepicker-toggle>
+                      <md-datepicker #myDatepicker2></md-datepicker>
+                    </md-form-field>
+                </div>
+
+                  <div class="formElt">
+                      <md-select placeholder="Origin Language" [(ngModel)]="candidate.language1" name="originLanguage" (focusout)="setlang2();updateprogressbar(1)" required>
+                        <md-option *ngFor="let l of languages" [value]="l">{{ l }}</md-option>
+                      </md-select>
+                  </div>
+
+                  <div class="formElt">                         
+                      <md-select placeholder="Marital Status" [(ngModel)]="candidate.maritalStatus" name="MaritalStatus" (focusout)="updateprogressbar(1)" required>
+                        <md-option *ngFor="let m of maritalStatus" [value]="m">{{ m }}</md-option>
+                      </md-select>
+                  </div>
+
+                  <div class="formElt">
+                         <md-form-field>
+                          <input mdInput type="number" [(ngModel)]="candidate.numberOfChildren" name="NumChildren" placeholder="Number of Children">
+                        </md-form-field>
+                  </div>
+
+          
+
+        </div>
+      </div>
+
+      <div class="size1" *ngIf="divId==2">
+
+          <div class="personalInfo1">
+
+            <div class="formElt">
+                   <md-select placeholder="Entrance Session" [(ngModel)]="candidate.session" name="entranceSession" (focusout)="updateprogressbar(2)" required>
+                        <md-option *ngFor="let y of eyears" [value]="y">{{ y }}</md-option>
+                   </md-select>
+            </div>
+            <div class="formElt">
+                   <md-select placeholder="Admission Diploma" [(ngModel)]="candidate.degreeDiploma" name="admissionDiploma" (focusout)="updateprogressbar(2)" required>
+                        <md-option *ngFor="let ad of ADEn" [value]="ad">{{ ad }}</md-option>
+                   </md-select>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.specialityDiploma" name="specialityDiploma" placeholder="Serie/Speciality/Option of the Diploma" (focusout)="updateprogressbar(2)" required>
+                    </md-form-field>
+            </div>
+
+          </div>
+
+          <div class="personalInfo2">
+
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="number" [(ngModel)]="candidate.avgDiploma" name="avg" placeholder="Average" (focusout)="updateprogressbar(2)" required>
+                    </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-select placeholder="Obtaining Year" [(ngModel)]="candidate.diplomaObtainYear" name="obtainingYear" (focusout)="updateprogressbar(2)" required>
+                        <md-option *ngFor="let y of Years" [value]="y">{{ y }}</md-option>
+                   </md-select>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.obtainingInstitution" name="obtainingInstitution" placeholder="Obtaining Institution" (focusout)="updateprogressbar(2)" required>
+                    </md-form-field>
+            </div>
+
+          </div>
+
+      </div>
+
+      <div class="size1" *ngIf="divId==3">
+
+          <div class="personalInfo1">
+
+            <div class="formElt">
+                   <md-select placeholder="Exam Center" [(ngModel)]="candidate.examCenter" name="examCenter" (focusout)="updateprogressbar(3)" required>
+                        <md-option *ngFor="let ec of ECs" [value]="ec">{{ ec }}</md-option>
+                   </md-select>
+            </div>
+            <div class="formElt">
+                   <md-select *ngIf="!nameParam" placeholder="Deposit Center" [(ngModel)]="candidate.depositPlace" name="depositPlace" (focusout)="updateprogressbar(3)" required>
+                        <md-option *ngFor="let dp of DPs" [value]="dp">{{ dp }}</md-option>
+                   </md-select>
+                   <md-select *ngIf="nameParam" placeholder="Deposit Center" [(ngModel)]="candidate.depositPlace" name="depositPlace" (focusout)="updateprogressbar(3)" disabled required>
+                        <md-option *ngFor="let dp of DPs" [value]="dp">{{ dp }}</md-option>
+                   </md-select>
+            </div>
+            <div class="formElt">
+                   <md-select placeholder="Admission Mode" [(ngModel)]="candidate.admissionMode" name="admissionMode" (focusout)="updateprogressbar(3)" required>
+                        <md-option *ngFor="let am of AMs" [value]="am">{{ am }}</md-option>
+                   </md-select>
+            </div>
+
+          </div>
+          <div class="personalInfo2">
+
+            <div class="formElt">
+                   <md-select placeholder="Cycle" [(ngModel)]="candidate.cycle" name="cycle" (focusout)="updateprogressbar(3)" required>
+                        <md-option *ngFor="let c of CY" [value]="c">{{ c }}</md-option>
+                   </md-select>
+            </div>
+            <div class="formElt">
+                   <md-select placeholder="Department" [(ngModel)]="department" (ngModelChange)="onChangeDept($event)" name="department" (focusout)="updateprogressbar(3)" required>
+                        <md-option *ngFor="let d of depts" [value]="d">{{ d.libelle }}</md-option>
+                   </md-select>
+            </div>
+            <div class="formElt">
+                   <md-select placeholder="Option" [(ngModel)]="option" name="option" (ngModelChange)="onChangeOpt($event)" (focusout)="updateprogressbar(3)" required>
+                        <md-option *ngFor="let o of opt1" [value]="o">{{ o.libelle }}</md-option>
+                   </md-select>
+            </div>
+
+          </div>
+
+      </div>
+
+      <div class="size1" *ngIf="divId==4">
+
+          <div class="personalInfo1">
+
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.residenceCity" name="residenceCity" placeholder="City Of residence" (focusout)="updateprogressbar(4)" required>
+                    </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="number" [(ngModel)]="candidate.tel1" name="tel1" placeholder="Tel1" (focusout)="updateprogressbar(4)" required>
+                    </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="number" [(ngModel)]="candidate.tel2" name="tel2" placeholder="Tel2">
+                    </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="email" [(ngModel)]="candidate.email" name="email" placeholder="Email" (focusout)="updateprogressbar(4)" required>
+                  </md-form-field>
+            </div>
+          </div>
+          <div class="personalInfo2">
+
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.bp" name="BP" placeholder="P.O.BOX" (focusout)="updateprogressbar(4)">
+                  </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.fax" name="fax" placeholder="Fax" (focusout)="updateprogressbar(4)">
+                  </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.address" name="Address" placeholder="Address" (focusout)="updateprogressbar(4)" required>
+                  </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.practicedSport" name="practicedSport" placeholder="Practiced Sport" (focusout)="updateprogressbar(4)">
+                  </md-form-field>
+            </div>
+            <div class="formElt">
+                   <md-form-field>
+                          <input mdInput type="text" [(ngModel)]="candidate.othersActivities" name="othersActivities" placeholder="Others Activities" (focusout)="updateprogressbar(4)">
+                  </md-form-field>
+            </div>
+
+          </div>
+
+      </div>
+
+      <div class="size2">
+
+              <div class="connect">
+                <button type="button" style="outline: none;" class="boutonSearch" (click)="updateDivId(-1)" name="previous" *ngIf="divId != 1"><--</button>
+                <button type="button" style="outline: none;" class="boutonSearch" name="next" (click)="updateDivId(1)" *ngIf="divId != 4">--></button>
+              </div>
+
+              <div class="fgtpwd" *ngIf="!nameParam" >
+                  <input type="submit" [disabled]="valid==0" *ngIf="valid!=2" (click)="setValid2(f)" name="register" value="Register" style="border-radius:9px;" class="btn btn-success" 
+                  >
+                  
+                  <button type="button" *ngIf="valid2==1 &&ok==1" (click)="setSection('Report Of Registration');" class="btn btn-success" [routerLink]="['/reportregistration', candidate.name, candidate.surname, gender, ''+datefor, candidate.placeOfBirth, candidate.nationality, candidate.originRegion, candidate.originDivision, candidate.originSubDivision, candidate.employmentSituation, candidate.typeHandicap, candidate.cardID, ''+candidate.cardIDIssueDate, candidate.language1, candidate.maritalStatus, candidate.numberOfChildren, candidate.session, candidate.degreeDiploma
+                  , candidate.specialityDiploma, candidate.avgDiploma, candidate.diplomaObtainYear, candidate.obtainingInstitution, candidate.examCenter, candidate.depositPlace, candidate.admissionMode, candidate.cycle,
+                  candidate.department, candidate.option, candidate.residenceCity, candidate.tel1, candidate.email, candidate.address,candidate.optionOfTraining ]" 
+                  >PRINT FORM!</button>
+                       
+              </div>
+              <div class="fgtpwd" *ngIf="nameParam" >
+                  <input type="submit" *ngIf="valid!=2" (click)="setValid2(f)" name="update" value="Update Registration" style="border-radius:9px;" class="btn btn-success" 
+                  >
+                  
+                  <button type="button" *ngIf="valid2==1" (click)="setSection('Report Of Registration');" class="btn btn-success" [routerLink]="['/reportregistration', candidate.name, candidate.surname, gender, ''+datefor, candidate.placeOfBirth, candidate.nationality, candidate.originRegion, candidate.originDivision, candidate.originSubDivision, candidate.employmentSituation, candidate.typeHandicap, candidate.cardID, ''+candidate.cardIDIssueDate, candidate.language1, candidate.maritalStatus, candidate.numberOfChildren, candidate.session, candidate.degreeDiploma
+                  , candidate.specialityDiploma, candidate.avgDiploma, candidate.diplomaObtainYear, candidate.obtainingInstitution, candidate.examCenter, candidate.depositPlace, candidate.admissionMode, candidate.cycle,
+                  candidate.department, candidate.option, candidate.residenceCity, candidate.tel1, candidate.email, candidate.address,candidate.optionOfTraining ]" 
+                  >PRINT FORM!</button>
+                      
+              </div>
+
+      </div>
+
+              <div *ngIf="!nameParam" class="progress" style="width:80%; height:7%; margin-left:10%;">
+                  <div class="progress-bar progress-bar-striped active centerPercentage" role="progressbar" style=" margin-left:-10%;"
+                  aria-valuenow="progressBarValue" aria-valuemin="0" aria-valuemax="100" [style.width]="progressBarValue + '%'" style="height: 15px;">
+                    {{progressBarValue}}% Completed
+                </div>
+                <!--<h3>{{ candidate | json }}</h3>-->
+            </div>
+            <!-- <div style="width: 100%; height:auto;">
+              <input type="text" id="datepicker" #d  (mouseup)="checkIfEmpty(d)" >
+            </div>
+            <h3>la date choisie: {{theDate | json}}</h3> -->
+            <!--<H5 style="color: white;"> {{candidate | json}}</H5>-->
+        </div>
+             
+      </div>
+          </form>
+
+</div>

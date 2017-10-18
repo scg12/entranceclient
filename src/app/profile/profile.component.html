@@ -1,0 +1,58 @@
+<div class="container-fluid">
+  <div class="m">
+     <div class="row line"> 
+        <div class="elt1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <md-checkbox [(ngModel)]="check1">Name?   </md-checkbox>
+        </div>
+        <div class="elt2 col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <md-form-field *ngIf="check1==true">
+              <input mdInput type="text" (focusout)="setValid();" [(ngModel)]="name" name="name" placeholder="New name" >
+          </md-form-field>
+        </div>
+    </div>
+       <div class="row line">
+        <div class="elt1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <md-checkbox  [(ngModel)]="check2">Surname?</md-checkbox>
+        </div>
+        <div  class="elt2 col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <md-form-field *ngIf="check2==true">
+              <input mdInput type="text" [(ngModel)]="surname" (focusout)="setValid();" name="surname" placeholder="New surname" >
+          </md-form-field>
+        </div>
+    </div>
+    <div class="row line">
+       <div class="elt1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <md-checkbox [(ngModel)]="check3">Login?  </md-checkbox>
+        </div>
+        <div class="elt2 col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <md-form-field *ngIf="check3==true">
+              <input mdInput type="text" [(ngModel)]="nlogin" (focusout)="setValid();" name="login" placeholder="New login" >
+          </md-form-field>
+        </div>
+    </div>
+    <div class="row line">
+          <div class="elt1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          <md-checkbox [(ngModel)]="check4">Password?</md-checkbox>
+        </div>
+        <div class="elt2 col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <md-form-field *ngIf="check4==true">
+              <input mdInput type="password" [(ngModel)]="npwd" (focusout)="setValid();" name="npwd" placeholder="New password" >
+          </md-form-field>
+        </div>
+    </div> 
+    <div class="row line">
+      <div class="elt1 col-xs-2 col-sm-2 col-md-2 col-lg-2">
+          
+        </div>
+      <div class="elt2 col-xs-10 col-sm-10 col-md-10 col-lg-10">
+          <md-form-field>
+              <input mdInput type="password" [(ngModel)]="pwd" (focusout)="setValid();" name="pwd" placeholder="Actual Password" required>
+          </md-form-field>
+        </div>
+    </div>
+    <div class="row line">
+        <input type="button" [disabled]="valid==0" (click)="validation();" name="ok" value="Update" style="border-radius:0px;" class="btn btn-success" >
+  </div>
+ </div>
+</div>
+ 

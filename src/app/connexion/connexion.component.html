@@ -1,0 +1,45 @@
+<div class="conteneur">
+
+  <div class="line1">
+
+      <img style="width: 7.5%; height: auto; margin-top: 5%;" src="assets/images/fingerprint.gif" alt="Secured Connection">
+
+  </div> 
+          <div style="width:100%; height: 5%;" *ngIf="cpt > 0" class="lineError">
+              {{error}} 
+          </div>
+  <div class="line2">
+
+      <div class="input">
+            <md-form-field>
+              <input mdInput style="color:white;"  type="text" [(ngModel)]="login" name="login" placeholder="Login" required>
+            </md-form-field>
+      </div>
+
+  </div>
+ 
+  <div class="line3">
+
+    <div class="input">
+       <md-form-field>
+          <input mdInput style="color:white;" type="password" [(ngModel)]="pwd" name="pwd" placeholder="Password" required>
+        </md-form-field>
+    </div>
+
+  </div>
+  <div class="hr">
+    <hr>
+  </div>
+  <div class="line4">
+           <div class="connect">
+              <!--<button type="button" (click)="connect()" style="outline: none; padding:5px;" class="boutonSearch" name="connect">Connect</button>-->
+              <button type="button" (click)="connect()" class="btn btn-success" >Connect</button>
+           </div>
+            <div class="fgtpwd">
+              <a href="#">Forgot password?...</a>
+            </div>
+
+  </div>
+
+
+</div>

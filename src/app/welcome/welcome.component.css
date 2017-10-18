@@ -1,0 +1,120 @@
+.container-fluid{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  //background-color:rgba(51, 51, 51, 0.5);
+  background-color:rgba(0, 0, 0, 0.7);
+  //box-shadow:2px 2px 2px 2px #FFF;
+  //border-radius: 6px;
+}
+
+#wrapper {
+				border-bottom: 1px solid #777;
+				//background: #555;
+        width: 100%;
+				height: 50%;
+				//padding-top: 100px;
+				position: absolute;
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+			}
+			#inner {
+				width: 650px;
+				height: 400px;
+				overflow: hidden;
+				margin-left: -325px;
+				position: absolute;
+				bottom: -75px;
+				left: 50%;
+			}
+			#carousel .slide {
+				width: 650px;
+				height: 400px;
+				float: left;
+				position: relative;
+			}
+			#carousel .slide > div {
+				height: 400px;
+				overflow: hidden;
+				position: absolute;
+				top: 0;
+			}
+			#carousel .slide > div.back {
+				height: 325px;
+			}
+			#carousel .slide > div.large {
+				left: 0;
+				z-index: 3;
+			}
+			#carousel .slide > div.large img {
+				margin-top: 50px;
+			}
+			#carousel .slide > div.small {
+				right: 0;
+				z-index: 2;
+			}
+			#carousel .slide > div.small img {
+				margin-top: 100px;
+			}
+
+			#pager {
+				position: absolute;
+				bottom: 12px;
+				right: 50px;
+				z-index: 6;
+			}
+			#pager a {
+				border-radius: 10px;
+				border: 1px solid #888;
+				display: inline-block;
+				width: 10px;
+				height: 10px;
+				margin: 5px;
+			}
+			#pager a.selected {
+				border-width: 3px;
+				margin: 3px;
+			}
+			#pager a span {
+				display: none;
+			}
+
+
+			#donate-spacer {
+				height: 100%;
+			}
+			#donate {
+				border-top: 1px solid #999;
+				width: 750px;
+				padding: 50px 75px;
+				margin: 0 auto;
+				overflow: hidden;
+			}
+			#donate p, #donate form {
+				margin: 0;
+				float: left;
+			}
+			#donate p {
+				width: 650px;
+				color: #fff;
+			}
+			#donate form {
+				width: 100px;
+			}
+.foot{
+  border-bottom: 1px solid #777;
+  background: #333;
+  width: 100%;
+  height: 50%;
+  //padding-top: 100px;
+  //position: relative;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+}

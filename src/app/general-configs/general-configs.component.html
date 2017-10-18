@@ -1,0 +1,66 @@
+<div #test class="config" style="color: white;">
+  <div style="width: 100%; height: 100%;">
+      <form #f="ngForm" (ngSubmit)="onSubmit(f)" novalidate>
+      <div *ngIf="sess" class="elt">
+        <table class="table table-bordered table-condensed ">
+                <thead>
+                  <th>Session</th>
+                  <th>Start Date</th>
+                  <th>Deadline</th>
+                  <th>Period for modification</th> 
+ 
+                </thead>
+                <tbody>
+                  <tr>  
+                      <td>{{sess}}</td>
+                      <td>{{config.dateDeb  | date }}</td>
+                      <td>{{config.dateEnd  | date}}</td>
+                      <td>{{pm}}</td>                      
+                  </tr>
+                </tbody>
+            </table>
+      </div>
+      <div class="elt">
+          <md-checkbox [(ngModel)]="check" name="check">Update?  </md-checkbox>
+        </div>
+    <div *ngIf="check">
+    
+      <div class="elt">
+      <md-form-field>
+        <input mdInput [(ngModel)]="dateDeb" [mdDatepicker]="myDatepicker" (focusout)="enable();" name="myDate1" placeholder="Start Date(mm/dd/yyyy)">
+        <md-datepicker-toggle mdSuffix [for]="myDatepicker" ></md-datepicker-toggle>
+        <md-datepicker #myDatepicker></md-datepicker>
+      </md-form-field>
+
+      </div>
+
+      <div class="elt">
+      <md-form-field>
+        <input mdInput [(ngModel)]="dateEnd" [mdDatepicker]="myDatepicker2" (focusout)="enable();" name="myDate2" placeholder="Deadline (mm/dd/yyyy)">
+        <md-datepicker-toggle mdSuffix [for]="myDatepicker2" ></md-datepicker-toggle>
+        <md-datepicker #myDatepicker2></md-datepicker>
+      </md-form-field>
+
+      </div>
+      <div class="elt">
+      <md-select placeholder="Session" [(ngModel)]="session"(focusout)="enable();"  name="Session">
+        <md-option *ngFor="let year of years" [value]="year">{{ year }}</md-option>
+      </md-select>
+      
+      </div>
+      <div class="elt">
+      <md-form-field>
+        <input mdInput type="number" [(ngModel)]="periodModif" name="modif" (focusout)="enable();" placeholder="Period for modification">
+      </md-form-field>
+
+      </div>
+
+                <div class="elt">
+                    <input type="submit" name="register" [disabled]="good==0" value="Register" style="border-radius:9px;" class="btn btn-success"  >
+                </div>
+        </div>
+      </form>
+</div>
+
+ </div>
+  

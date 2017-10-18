@@ -1,3 +1,570 @@
-<h1>
-  {{title}}
-</h1>
+<div class="container-fluid">
+
+    <div class="container ">
+
+        <!-- Header Start-->
+
+        <div class="row headerRow">
+
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 head1">
+              <div style="width: 50%; height:100%; float: left;"><a (click)="setSection('Welcome');" routerLink="">
+                <img style="width: 30%; height: 95%"  src="../assets/images/ubuea.png" alt="Logo UBUEA" ></a></div>
+              <div *ngIf="displayOperations==1" class="user"> Connected: {{conGender+" "+conName}}</div>
+              <div *ngIf="displayOperations==0" class="user2"> </div>
+              <div class="TM" style="width: 5%;"><a href="#" (click)="connect();" class="ablue" onclick="return false;"><div class="topMenu"> {{connexion}}</div> </a></div>
+              <div class="TM" style="width: 5%;"><a class="ablue" (click)="setSection('Dashboard');" routerLink="dashboard"> <div class="topMenu">DashBoard</div> </a></div>
+              <div class="TM" style="width: 5%;"><a class="ablue" (click)="setSection('Profile');" routerLink="profile"><div class="topMenu">Profile </div></a></div>
+              <div class="TM" style="width: 5%;">
+                <form >
+                        <select class="langSelect" name="lang">
+                          <option value="en">en</option>
+                          <option value="fr">fr</option>
+                        </select>
+
+
+                </form>
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 head2">
+              <div class="" style="width:30%; height:100%; float: left;">
+                <form>
+                   <input (keyup.enter)="setSection('All Registrations');search();" style="width:50%;  height:50%;margin-top:4%;" type="text" name="search" placeholder="Search For ..." />
+                  <a href='#' onclick="return false;" (click)="setSection('All Registrations');search();"><img style="width:5%; height:12%;" src="../assets/images/loupe.png" alt="Welcome to HTTTC KUMBA"></a>
+                </form>
+              </div>
+              <div class="row" style="width:70%; height:100%; float: left;">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 head1">
+
+                  <div style="width:100%; height:100%;display:block; " class="">
+                    
+                        <label for="show-menu" class="show-menu">Show Menu</label>
+                          <input type="checkbox" id="show-menu" role="button">
+                              <ul id="menu">
+                      
+                          <li><a href='#' onclick="return false;">Apply to H.T.T.T.C</a>
+                                            <ul class="hidde">
+                                              <li><a (click)="setSection('Registration');" routerLink="registration">Register <-> (R)</a></li>
+                                              <li><a href='#' (click)="setSection('Modify Registration');" routerLink="modifyRegistration">Modify Your (R)</a></li>
+                                              <li><a (click)="setSection('Download Registration Form');" routerLink="downloadRegistration">Download (R) Form</a></li>
+                                            </ul>
+                              </li>
+                              <li><a *ngIf="displayOperations==1" href='#' onclick="return false;">Operations</a>
+                                            <ul class="hidde">
+                                              <li><a (click)="setSection('All Registrations');" routerLink="viewRegistrations">All Registrations (Rs)</a></li>
+                                              <li><a (click)="setSection('Validated Registrations');" routerLink="validatedRegistrations">Validated Rs</a></li>
+                                              <li><a (click)="setSection('Non-validated Registrations');" routerLink="nonValidatedRegistrations">Non Validated Rs</a></li>
+                                              <li><a (click)="setSection('Rs for a deposit place');" routerLink="registrationsDP">Rs for a deposit place</a></li>
+                                              <li><a (click)="setSection('Rs by department');" routerLink="registrationsDept">Rs by department</a></li>
+                                            </ul>
+                              </li>
+                          <li><a *ngIf="displayAdministration==1" href='#' onclick="return false;">Administration</a>
+                                            <ul class="hidde">
+                                              <li><a (click)="setSection('General Configurations');" routerLink="configs">General Configs</a></li>
+                                              <!--<li><a href='#' onclick="return false;">Manage Groups</a></li>-->
+                                              <li><a href='#' onclick="return false;" (click)="setSection('Users List');" routerLink="userslist">Users List</a></li>
+                                              <li><a href='#' onclick="return false;">Activities of users</a></li>
+                                              <!--<li><a href='#' onclick="return false;">Track Users Activities</a></li>-->
+                                            </ul>
+                              </li>
+                          <li><a *ngIf="displayAdministration==1" href='#' onclick="return false;" >Statistics</a>
+                                              <ul class="hidde">
+                                                  <li><a href='#' onclick="return false;" (click)="setSection('Dashboard');" routerLink="dashboard">Stats</a></li>
+                                              </ul>
+                              </li>
+                          </ul>
+                                 
+                               <flash-messages id="grayOutDiv" class="flash-message"></flash-messages>
+                                
+                  </div>
+
+                </div>
+
+              </div>
+          </div>
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 head3 img">
+              <div class="row htttc" style="width: 100%;height: 30%;margin: 0;">
+                        {{ htttc }}
+              </div>
+              <div class="row" style="width: 100%;height: 60%;">
+              
+              </div>
+            <div class="row" style="width: 50%;height: 10%; margin-left:20%;">
+              
+                <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 title">
+                      <h4 style=" overflow:hidden; font-size: 12px;font-family: 'Times New Roman', Times, serif">Section: {{section}}</h4>
+                </div>
+            </div>
+          </div>
+
+          <!-- <div class="headerRowInner radius">
+
+              <div class="col-xs-5 col-sm-5 col-md-2 col-lg-2 headerCol">
+
+                  <div class="headerColInner2">
+
+                       <a routerLink=""><img src="../assets/images/ubuea.png" alt="Logo UBUEA" class="radiusImg"></a>
+
+                  </div>
+
+              </div>
+
+              <div class="col-xs-7 col-sm-7 col-md-4 col-lg-4 headerCol">
+
+                <div class="headerColInner">
+
+
+                    <form>
+                       <input type="text" name="search" placeholder="Search For ..." />
+                      <button type="button" class="boutonSearch" name="search">Search</button>
+                    </form>
+
+                </div>
+
+              </div>
+
+              <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 headerCol">
+
+                <div class="headerColInner" style="display: block;">
+                  <div class="positionBoutonMenu">
+
+
+
+                  <form>
+
+                        <a routerLink="connexion">  <button type="button" class="boutonDefault1" name="connexion"  >Connexion</button></a>
+                          <button type="button" class="boutonDefault1" name="dashboard">DashBoard</button>
+                          <button type="button" class="boutonDefault1" name="manageProfil">Manage Profil</button>
+                  </form>
+                  </div>
+
+                  <div class="positionBoutonLang">
+
+
+
+                  <form >
+                          <select class="langSelect" name="lang">
+                            <option value="en">en</option>
+                            <option value="fr">fr</option>
+                          </select>
+
+
+                  </form>
+                  </div>
+
+                </div>
+
+              </div>
+
+          </div> -->
+
+       </div>
+
+       <!--Header End-->
+
+       <!--Main Start-->
+
+       <div class="row mainRow">
+
+         <!--Nav Start-->
+
+              <!-- <div class="col-xs-12 col-sm-12 col-md-2 col-lg-2 mainRowCol1" >
+
+                <div class="mainRowColInner radius">
+
+                  <div class="headerColInner3">
+
+                            <ul id="menu-accordeon">
+                              <li><a href='#' onclick="return false;">Apply to H.T.T.T.C</a>
+                                 <ul>
+                                    <li><a routerLink="registration">Register</a></li>
+                                    <li><a href='#' onclick="return false;">Modify Your Registration</a></li>
+                                    <li><a href='#' onclick="return false;">Download Registration Form</a></li>
+                                 </ul>
+                              </li>
+                               <li><a href='#' onclick="return false;">User Operations</a>
+                                 <ul>
+                                    <li><a href='#' onclick="return false;">All Registrations</a></li>
+                                    <li><a href='#' onclick="return false;">Validated Registrations</a></li>
+                                    <li><a href='#' onclick="return false;">Non Validated Registration</a></li>
+                                 </ul>
+                              </li>
+                              <li><a href='#' onclick="return false;">Administration</a>
+                                 <ul>
+                                    <li><a href='#' onclick="return false;">General Configs</a></li>
+                                    <li><a href='#' onclick="return false;">Manage Groups</a></li>
+                                    <li><a href='#' onclick="return false;">Manage Users</a></li>
+                                    <li><a href='#' onclick="return false;">Activities of a User</a></li>
+                                    <li><a href='#' onclick="return false;">Track Users Activities</a></li>
+                                 </ul>
+                              </li>
+                              <li><a href='#' onclick="return false;">Statistics</a>
+                                 <ul>
+                                    <li><a href='#' onclick="return false;">Stats</a></li>
+                                 </ul>
+                              </li>
+                       </ul>
+
+                </div>
+
+               </div>
+
+             </div> -->
+
+          <!--Nav End-->
+
+          <!--Container Start-->
+
+          <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 mainRowCol2">
+
+            <div class="mainRowColInner">
+
+              <div class="headerColInner2" style="display: block;">
+
+                <div class="positionBoutonMenu" style="width:100%; padding:1%;">
+
+                       <router-outlet></router-outlet>
+
+                </div>
+
+              </div>
+
+
+           </div>
+
+          </div>
+
+          <!--Container End-->
+
+          <!--Aside Start-->
+
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 mainRowCol3">
+
+            <div class="mainRowColInner">
+
+              <div class="headerColInner2 block">
+
+              <div class="" style="width:100%; height:90% ;" *ngIf="dId==3">
+                <div class="positionBoutonMenu left" style="width:100%; height:9%; padding:1%;">
+
+                  <h3><a href='#' onclick="return false;">Brief School presentation</a></h3>
+                </div>
+                <div class="positionBoutonMenu left" style="width:100%; height:19%; padding:1%;">
+
+                    <img class="img-circle" style="width:30%; height:100% ;" src="../assets/images/5s.png">
+                </div>
+                  <div class="positionBoutonMenu left" style="  display: block;width:100%; height:74%; padding:1%; color:white; text-align: justify;">
+                    <div style="background:#ffffff; border: 1px solid blue; border-radius: 3px; color:black;  width:90%; height:95%; display: flex; overflow-y: auto; font-size:12px; align-items: center;   justify-content: center;margin-left:5%; padding: 2.5%; ">
+                    The ENSET of Kumba was created on 7 March 2014 by Decree No. 2014/090 of the President of the Republic after the announcement was made by the latter a few days earlier at the celebration of the fiftieth anniversary of the Reunification in Buea . Shortly thereafter, the decree of opening was intervened and since then, the ENSET of Kumba is functional. The Higher Technical Teaching Training College (HTTTC) in Kumba is an institution of the University of Buea
+                  </div>
+                  </div>
+              </div>
+                <div class="" style="width:100%; height:90% ;" *ngIf="dId==2">
+                  <div class="positionBoutonMenu left" style="width:100%; height:9%; padding:1%;">
+
+                    <h3><a href='#' onclick="return false;">Files to complete</a></h3>
+                  </div>
+                  <div class="positionBoutonMenu left" style="width:100%; height:19%; padding:1%;">
+
+                      <img class="img-circle" style="width:30%; height:100% ;" src="../assets/images/folder.png">
+                  </div>
+                  <div class="positionBoutonMenu left" style="  display: block;width:100%; height:74%; padding:1%; color:white; text-align: justify;">
+                    <div class="aside">
+                    <h4>Download competitive entrance examination files</h4>
+                    </div>
+                    <div class="aside">
+                    <a class="ancre" href="http://www.ubuea.cm/wp-content/uploads/2017/09/ENSET-KUMBA-L1-1.pdf">1st Year Of the 1st Cycle <img style="width:10%; height: auto;"  src="../assets/images/pdf2.png" alt="up" ></a>
+                    </div>
+                    <div class="aside">
+                    <a class="ancre" href="http://www.ubuea.cm/wp-content/uploads/2017/09/ENSET-KUMBA-L3.pdf">3rd Year Of the 1st Cycle <img style="width:10%; height: auto;"  src="../assets/images/pdf2.png" alt="up" ></a>
+                    </div>
+                    <div class="aside">
+                    <a class="ancre" href="http://www.ubuea.cm/wp-content/uploads/2017/09/ENSET-KUMBA-L5.pdf">1st Year Of the 2nd Cycle <img style="width:10%; height: auto;"  src="../assets/images/pdf2.png" alt="up" ></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="" style="width:100%; height:90% ;" *ngIf="dId==1">
+              <div class="positionBoutonMenu left" style="width:100%; height:9%; padding:1%;">
+
+                <h3><a href='#' onclick="return false;">Different Departments</a></h3>
+              </div>
+              <div class="positionBoutonMenu left" style="width:100%; height:19%; padding:1%;">
+
+                  <img class="img-circle" style="width:30%; height:100% ;" src="../assets/images/graduated.png">
+              </div>
+          <div style="width:100%; height: 74%; z-index: 99; overflow-y: auto;">
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="headingOne">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(1)" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                      Civil Engineering and Fortstry Techniques
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==1" id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne">
+                  <div class="card-block">
+                   >Building Construction
+                  </div>
+                  <div class="card-block">
+                   >WoodWorks
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading2">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(2)" data-parent="#accordion" href="#collapse2" aria-expanded="true" aria-controls="collapse2">
+                      Electrical and Power Engineering
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==2" id="collapse2" class="collapse show" role="tabpanel" aria-labelledby="heading2">
+                  <div class="card-block">
+                   >Electronics
+                  </div>
+                  <div class="card-block">
+                   >Power
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading3">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(3)" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+                      Mechanical Engineering
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==3" id="collapse3" class="collapse show" role="tabpanel" aria-labelledby="heading3">
+                  <div class="card-block">
+                   >Mechanical Manufacturing
+                  </div>
+                  <div class="card-block">
+                   >Automobile Mechanics
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading4">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(4)" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+                      Agriculture
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==4" id="collapse4" class="collapse show" role="tabpanel" aria-labelledby="heading4">
+                  <div class="card-block">
+                   >Agriculture
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading5">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(5)" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse5">
+                      Social Econonivand Familly Manaeement
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==5" id="collapse5" class="collapse show" role="tabpanel" aria-labelledby="heading5">
+                  <div class="card-block">
+                   >Fashion Clothing and Textiles
+                  </div>
+                  <div class="card-block">
+                   >Home Economics
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading6">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(6)" data-parent="#accordion" href="#collapse6" aria-expanded="true" aria-controls="collapse6">
+                      Computer Sciences
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==6" id="collapse6" class="collapse show" role="tabpanel" aria-labelledby="heading6">
+                  <div class="card-block">
+                   >Industrial computing
+                  </div>
+                  <div class="card-block">
+                   >ICT
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading7">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(7)" data-parent="#accordion" href="#collapse7" aria-expanded="true" aria-controls="collapse7">
+                      Administrative Techniques
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==7" id="collapse7" class="collapse show" role="tabpanel" aria-labelledby="heading7">
+                  <div class="card-block">
+                   >Information Management and Communication (IMC)
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading8">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(8)" data-parent="#accordion" href="#collapse8" aria-expanded="true" aria-controls="collapse8">
+                      Management Sciences
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==8" id="collapse8" class="collapse show" role="tabpanel" aria-labelledby="heading8">
+                  <div class="card-block">
+                   >Marketing
+                  </div>
+                  <div class="card-block">
+                   >Real Estate Management
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading9">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(9)" data-parent="#accordion" href="#collapse9" aria-expanded="true" aria-controls="collapse9">
+                      Tourism and Hospitality Management
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==9" id="collapse9" class="collapse show" role="tabpanel" aria-labelledby="heading9">
+                  <div class="card-block">
+                   >Tourism
+                  </div>
+                  <div class="card-block">
+                   >Hotel Management
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading10">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(10)" data-parent="#accordion" href="#collapse10" aria-expanded="true" aria-controls="collapse10">
+                      Law
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==10" id="collapse10" class="collapse show" role="tabpanel" aria-labelledby="heading10">
+                  <div class="card-block">
+                   >Law
+                  </div>
+      
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading11">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(11)" data-parent="#accordion" href="#collapse11" aria-expanded="true" aria-controls="collapse11">
+                      Science of Education
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==11" id="collapse11" class="collapse show" role="tabpanel" aria-labelledby="heading11">
+                  <div class="card-block">
+                   >Science of Education
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+
+            <div id="accordion" role="tablist" aria-multiselectable="true">
+              <div class="card" style="width: 80%;height: auto; margin-left: 10%;">
+                <div class="card-header" role="tab" id="heading12">
+                  <h5 class="mb-0">
+                    <a data-toggle="collapse" style="color:black" (click)="show(12)" data-parent="#accordion" href="#collapse12" aria-expanded="true" aria-controls="collapse12">
+                      Guidance Counseling
+                    </a>
+                  </h5>
+                  </div>
+                  <div *ngIf="disp==12" id="collapse12" class="collapse show" role="tabpanel" aria-labelledby="heading12">
+                  <div class="card-block">
+                   >Guidance Counseling
+                  </div>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+            </div>
+                <div class="positionBoutonMenu" style="width:100%; height:9%; padding:1%;">
+                  <button type="button" style="outline: none; width:10%; height:49% ;background:#002080; color:white;" class="img-circle" (click)="updatedId(-1)" name="previous" *ngIf="dId != 1" ><</button>
+                  <button type="button" style="outline: none; width:10%; height:49% ;background:#002080; color: white;" class="img-circle " name="next" (click)="updatedId(1)" *ngIf="dId != 3">></button>
+
+                </div>
+
+
+
+              </div>
+
+           </div>
+
+          </div>
+
+          <!--Aside ENd-->
+
+       </div>
+
+       <!--Main End-->
+
+       <!--Footer Start-->
+
+       <div class="row footerRow">
+
+             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 footerRowCol" >
+
+               <div class="footerRowColInner" style="display:block;">
+                 <div class="positionBoutonMenu" style="color:white;float: left;">
+                    <h5>&copy; H.T.T.T.C KUMBA 2017</h5>
+                 </div>
+                 <div style="width: 10%; float: left;">
+                   <a (click)="toTop();">
+                    <img style="width: 30%; margin-top:5%;  height: auto; display: flex; align-items: center;justify-content: center;" src="../assets/images/up2.ico" alt="up" ></a>
+                 </div>  
+
+              </div>
+
+             </div>  
+       </div>
+
+       <!--Footer End-->
+     </div>
+
+</div>

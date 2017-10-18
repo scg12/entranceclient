@@ -1,0 +1,452 @@
+<div class="main">
+
+<div class="container-fluid">
+<flash-messages id="grayOutDiv" class="flash-message"></flash-messages>
+<div  *ngIf="load==0" class="container-fluid2" style="color:white; ">
+  <div style="display:block;float:left;width: 100%;height: 60%; ">
+  <img *ngIf="dt.length !=7" style=" margin-left: 50%;margin-top: 15%; width:15px;height: auto;"  src="../assets/images/load.gif" alt="Loading">
+  <button *ngIf="dt.length==7"  style=" margin-left: 50%;margin-top: 15%;" type="button" (click)="click()"  class="btn btn-success">Ready!</button>
+  </div>
+  <div *ngIf="dt.length !=7" style="display:block; float:left;color:white;width: 100%; height: 20%; display: flex;  align-items: center;  justify-content: center;">
+      <h6>Preparing the presentation...</h6>
+  </div>
+  <!--<div *ngIf="dt.length==7" style="display:block;float:left;color:white;width: 100%; height: 20%; display: flex;  align-items: center;  justify-content: center;">
+    
+  </div>-->
+</div>
+
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart1"></canvas>
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart2"></canvas>  
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart3"></canvas>
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart4"></canvas>  
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart5"></canvas>  
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart6"></canvas>  
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart7"></canvas>  
+  </div>
+<div  *ngIf="load==1 && loadOthers==0" class="container-fluid2" style="color:white; ">
+  <div style="display:block;float:left;width: 100%;height: 10%; ">
+  <img style=" margin-left: 50%;margin-top: 15%; width:15px;height: auto;"  src="../assets/images/load.gif" alt="Loading">
+  </div>
+  <div style="display:block; float:left;color:white;width: 100%; height: 20%; display: flex;  align-items: center;  justify-content: center;">
+      <h6>Loading the rest...</h6>
+  </div>
+  <!--<div *ngIf="dt.length==7" style="display:block;float:left;color:white;width: 100%; height: 20%; display: flex;  align-items: center;  justify-content: center;">
+    
+  </div>-->
+</div>
+
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart8"></canvas>  
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart9"></canvas>  
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas id="myChart10"></canvas>  
+  </div>
+  <div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart11"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart12"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart13"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart14"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart15"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart16"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart17"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart18"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart19"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart20"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart21"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart22"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart23"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart24"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart25"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart26"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart27"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart28"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart29"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart30"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart31"></canvas>  
+  </div>
+<div *ngIf="dt.length>=7"  class="chart-container">
+    <canvas  id="myChart32"></canvas>  
+  </div>
+<!--<div *ngIf="index>=33" class="chart-container">
+    <canvas  id="myChart33"></canvas>  
+  </div>
+<div *ngIf="index>=34" class="chart-container">
+    <canvas  id="myChart34"></canvas>  
+  </div>
+<div *ngIf="index>=35" class="chart-container">
+    <canvas  id="myChart35"></canvas>  
+  </div>
+<div *ngIf="index>=36" class="chart-container">
+    <canvas  id="myChart36"></canvas>  
+  </div>
+<div *ngIf="index>=37" class="chart-container">
+    <canvas  id="myChart37"></canvas>  
+  </div>
+<div *ngIf="index>=38" class="chart-container">
+    <canvas  id="myChart38"></canvas>  
+  </div>
+<div *ngIf="index>=39" class="chart-container">
+    <canvas  id="myChart39"></canvas>  
+  </div>
+<div *ngIf="index>=40" class="chart-container">
+    <canvas  id="myChart40"></canvas>  
+  </div>
+<div *ngIf="index>=41" class="chart-container">
+    <canvas  id="myChart41"></canvas>  
+  </div>
+<div *ngIf="index>=42" class="chart-container">
+    <canvas  id="myChart42"></canvas>  
+  </div>
+<div *ngIf="index>=43" class="chart-container">
+    <canvas  id="myChart43"></canvas>  
+  </div>
+<div *ngIf="index>=44" class="chart-container">
+    <canvas  id="myChart44"></canvas>  
+  </div>
+<div *ngIf="index>=45" class="chart-container">
+    <canvas  id="myChart45"></canvas>  
+  </div>
+<div *ngIf="index>=46" class="chart-container">
+    <canvas  id="myChart46"></canvas>  
+  </div>
+<div *ngIf="index>=47" class="chart-container">
+    <canvas  id="myChart47"></canvas>  
+  </div>
+<div *ngIf="index>=48" class="chart-container">
+    <canvas  id="myChart48"></canvas>  
+  </div>
+<div *ngIf="index>=49" class="chart-container">
+    <canvas  id="myChart49"></canvas>  
+  </div>
+<div *ngIf="index>=50" class="chart-container">
+    <canvas  id="myChart50"></canvas>  
+  </div>
+<div *ngIf="index>=51" class="chart-container">
+    <canvas  id="myChart51"></canvas>  
+  </div>
+<div *ngIf="index>=52" class="chart-container">
+    <canvas  id="myChart52"></canvas>  
+  </div>
+<div *ngIf="index>=53" class="chart-container">
+    <canvas  id="myChart53"></canvas>  
+  </div>
+<div *ngIf="index>=54" class="chart-container">
+    <canvas  id="myChart54"></canvas>  
+  </div>
+<div *ngIf="index>=55" class="chart-container">
+    <canvas  id="myChart55"></canvas>  
+  </div>
+<div *ngIf="index>=56" class="chart-container">
+    <canvas  id="myChart56"></canvas>  
+  </div>
+<div *ngIf="index>=57" class="chart-container">
+    <canvas  id="myChart57"></canvas>  
+  </div>
+<div *ngIf="index>=58" class="chart-container">
+    <canvas  id="myChart58"></canvas>  
+  </div>
+<div *ngIf="index>=59" class="chart-container">
+    <canvas  id="myChart59"></canvas>  
+  </div>
+<div *ngIf="index>=60" class="chart-container">
+    <canvas  id="myChart60"></canvas>  
+  </div>
+<div *ngIf="index>=61" class="chart-container">
+    <canvas  id="myChart61"></canvas>  
+  </div>
+<div *ngIf="index>=62" class="chart-container">
+    <canvas  id="myChart62"></canvas>  
+  </div>
+<div *ngIf="index>=63" class="chart-container">
+    <canvas  id="myChart63"></canvas>  
+  </div>
+<div *ngIf="index>=64" class="chart-container">
+    <canvas  id="myChart64"></canvas>  
+  </div>
+<div *ngIf="index>=65" class="chart-container">
+    <canvas  id="myChart65"></canvas>  
+  </div>
+<div *ngIf="index>=66" class="chart-container">
+    <canvas  id="myChart66"></canvas>  
+  </div>
+<div *ngIf="index>=67" class="chart-container">
+    <canvas  id="myChart67"></canvas>  
+  </div>
+<div *ngIf="index>=68" class="chart-container">
+    <canvas  id="myChart68"></canvas>  
+  </div>
+<div *ngIf="index>=69" class="chart-container">
+    <canvas  id="myChart69"></canvas>  
+  </div>
+<div *ngIf="index>=70" class="chart-container">
+    <canvas  id="myChart70"></canvas>  
+  </div>
+<div *ngIf="index>=71" class="chart-container">
+    <canvas  id="myChart71"></canvas>  
+  </div>
+<div *ngIf="index>=72" class="chart-container">
+    <canvas  id="myChart72"></canvas>  
+  </div>
+<div *ngIf="index>=73" class="chart-container">
+    <canvas  id="myChart73"></canvas>  
+  </div>
+<div *ngIf="index>=74" class="chart-container">
+    <canvas  id="myChart74"></canvas>  
+  </div>
+<div *ngIf="index>=75" class="chart-container">
+    <canvas  id="myChart75"></canvas>  
+  </div>
+<div *ngIf="index>=76" class="chart-container">
+    <canvas  id="myChart76"></canvas>  
+  </div>
+<div *ngIf="index>=77" class="chart-container">
+    <canvas  id="myChart77"></canvas>  
+  </div>
+<div *ngIf="index>=78" class="chart-container">
+    <canvas  id="myChart78"></canvas>  
+  </div>
+<div *ngIf="index>=79" class="chart-container">
+    <canvas  id="myChart79"></canvas>  
+  </div>
+<div *ngIf="index>=80" class="chart-container">
+    <canvas  id="myChart80"></canvas>  
+  </div>
+<div *ngIf="index>=81" class="chart-container">
+    <canvas  id="myChart81"></canvas>  
+  </div>
+<div *ngIf="index>=82" class="chart-container">
+    <canvas  id="myChart82"></canvas>  
+  </div>
+<div *ngIf="index>=83" class="chart-container">
+    <canvas  id="myChart83"></canvas>  
+  </div>
+<div *ngIf="index>=84" class="chart-container">
+    <canvas  id="myChart84"></canvas>  
+  </div>
+<div *ngIf="index>=85" class="chart-container">
+    <canvas  id="myChart85"></canvas>  
+  </div>
+<div *ngIf="index>=86" class="chart-container">
+    <canvas  id="myChart86"></canvas>  
+  </div>
+<div *ngIf="index>=87" class="chart-container">
+    <canvas  id="myChart87"></canvas>  
+  </div>
+<div *ngIf="index>=88" class="chart-container">
+    <canvas  id="myChart88"></canvas>  
+  </div>
+<div *ngIf="index>=89" class="chart-container">
+    <canvas  id="myChart89"></canvas>  
+  </div>
+<div *ngIf="index>=90" class="chart-container">
+    <canvas  id="myChart90"></canvas>  
+  </div>
+<div *ngIf="index>=91" class="chart-container">
+    <canvas  id="myChart91"></canvas>  
+  </div>
+<div *ngIf="index>=92" class="chart-container">
+    <canvas  id="myChart92"></canvas>  
+  </div>
+<div *ngIf="index>=93" class="chart-container">
+    <canvas  id="myChart93"></canvas>  
+  </div>
+<div *ngIf="index>=94" class="chart-container">
+    <canvas  id="myChart94"></canvas>  
+  </div>
+<div *ngIf="index>=95" class="chart-container">
+    <canvas  id="myChart95"></canvas>  
+  </div>
+<div *ngIf="index>=96" class="chart-container">
+    <canvas  id="myChart96"></canvas>  
+  </div>
+<div *ngIf="index>=97" class="chart-container">
+    <canvas  id="myChart97"></canvas>  
+  </div>
+<div *ngIf="index>=98" class="chart-container">
+    <canvas  id="myChart98"></canvas>  
+  </div>
+<div *ngIf="index>=99" class="chart-container">
+    <canvas  id="myChart99"></canvas>  
+  </div>
+<div *ngIf="index>=100" class="chart-container">
+    <canvas  id="myChart100"></canvas>  
+  </div>
+<div *ngIf="index>=101" class="chart-container">
+    <canvas  id="myChart101"></canvas>  
+  </div>
+<div *ngIf="index>=102" class="chart-container">
+    <canvas  id="myChart102"></canvas>  
+  </div>
+<div *ngIf="index>=103" class="chart-container">
+    <canvas  id="myChart103"></canvas>  
+  </div>
+<div *ngIf="index>=104" class="chart-container">
+    <canvas  id="myChart104"></canvas>  
+  </div>
+<div *ngIf="index>=105" class="chart-container">
+    <canvas  id="myChart105"></canvas>  
+  </div>
+<div *ngIf="index>=106" class="chart-container">
+    <canvas  id="myChart106"></canvas>  
+  </div>
+<div *ngIf="index>=107" class="chart-container">
+    <canvas  id="myChart107"></canvas>  
+  </div>
+<div *ngIf="index>=108" class="chart-container">
+    <canvas  id="myChart108"></canvas>  
+  </div>
+<div *ngIf="index>=109" class="chart-container">
+    <canvas  id="myChart109"></canvas>  
+  </div>
+<div *ngIf="index>=110" class="chart-container">
+    <canvas  id="myChart110"></canvas>  
+  </div>
+<div *ngIf="index>=111" class="chart-container">
+    <canvas  id="myChart111"></canvas>  
+  </div>
+<div *ngIf="index>=112" class="chart-container">
+    <canvas  id="myChart112"></canvas>  
+  </div>
+<div *ngIf="index>=113" class="chart-container">
+    <canvas  id="myChart113"></canvas>  
+  </div>
+<div *ngIf="index>=114" class="chart-container">
+    <canvas  id="myChart114"></canvas>  
+  </div>
+<div *ngIf="index>=115" class="chart-container">
+    <canvas  id="myChart115"></canvas>  
+  </div>
+<div *ngIf="index>=116" class="chart-container">
+    <canvas  id="myChart116"></canvas>  
+  </div>
+<div *ngIf="index>=117" class="chart-container">
+    <canvas  id="myChart117"></canvas>  
+  </div>
+<div *ngIf="index>=118" class="chart-container">
+    <canvas  id="myChart118"></canvas>  
+  </div>
+<div *ngIf="index>=119" class="chart-container">
+    <canvas  id="myChart119"></canvas>  
+  </div>
+<div *ngIf="index>=120" class="chart-container">
+    <canvas  id="myChart120"></canvas>  
+  </div>
+<div *ngIf="index>=121" class="chart-container">
+    <canvas  id="myChart121"></canvas>  
+  </div>
+<div *ngIf="index>=122" class="chart-container">
+    <canvas  id="myChart122"></canvas>  
+  </div>
+<div *ngIf="index>=123" class="chart-container">
+    <canvas  id="myChart123"></canvas>  
+  </div>
+<div *ngIf="index>=124" class="chart-container">
+    <canvas  id="myChart124"></canvas>  
+  </div>
+<div *ngIf="index>=125" class="chart-container">
+    <canvas  id="myChart125"></canvas>  
+  </div>
+<div *ngIf="index>=126" class="chart-container">
+    <canvas  id="myChart126"></canvas>  
+  </div>
+<div *ngIf="index>=127" class="chart-container">
+    <canvas  id="myChart127"></canvas>  
+  </div>
+<div *ngIf="index>=128" class="chart-container">
+    <canvas  id="myChart128"></canvas>  
+  </div>
+<div *ngIf="index>=129" class="chart-container">
+    <canvas  id="myChart129"></canvas>  
+  </div>
+<div *ngIf="index>=130" class="chart-container">
+    <canvas  id="myChart130"></canvas>  
+  </div>
+<div *ngIf="index>=131" class="chart-container">
+    <canvas  id="myChart131"></canvas>  
+  </div>
+<div *ngIf="index>=132" class="chart-container">
+    <canvas  id="myChart132"></canvas>  
+  </div>
+<div *ngIf="index>=133" class="chart-container">
+    <canvas  id="myChart133"></canvas>  
+  </div>
+<div *ngIf="index>=134" class="chart-container">
+    <canvas  id="myChart134"></canvas>  
+  </div>
+<div *ngIf="index>=135" class="chart-container">
+    <canvas  id="myChart135"></canvas>  
+  </div>
+<div *ngIf="index>=136" class="chart-container">
+    <canvas  id="myChart136"></canvas>  
+  </div>
+<div *ngIf="index>=137" class="chart-container">
+    <canvas  id="myChart137"></canvas>  
+  </div>
+<div *ngIf="index>=138" class="chart-container">
+    <canvas  id="myChart138"></canvas>  
+  </div>
+<div *ngIf="index>=139" class="chart-container">
+    <canvas  id="myChart139"></canvas>  
+  </div>
+<div *ngIf="index>=140" class="chart-container">
+    <canvas  id="myChart140"></canvas>  
+  </div>-->
+
+</div>
+</div>

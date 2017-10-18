@@ -1,0 +1,91 @@
+.conteneur{
+  width: 60%;
+  height: 50%;
+  margin-top: 15%;
+  margin-left: 20%;
+  background: rgba(0,0,0,0.7);
+  border: 2px;
+  border-radius: 6px;
+  z-index: 5;
+}
+
+.line1{
+  width: 100%;
+  height: 25%;
+  //padding-left: 25%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lineError{
+  color: red;
+  width: 100%;
+
+  height: 10%;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 11px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.line2{
+  width: 100%;
+  height: 22.5%;
+}
+.line3{
+  width: 100%;
+  height: 22.5%;
+}
+.hr{
+  width:90%;
+  height: 1%;
+  padding-left: 5%;
+}
+hr{
+  background: white;
+}
+.line4{
+  width: 100%;
+  height: 14%;
+  border: 2px white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.connect{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fgtpwd{
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+    max-width: 10%;
+    height: auto;
+}
+
+.label{
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.input{
+  display: flex;
+  align-items: end;
+  justify-content: center;
+}
+
+button:hover{
+  box-shadow:3px 3px 5px #FFF;
+  background: #3498db;
+  outline: none;
+}
